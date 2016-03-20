@@ -1,0 +1,72 @@
+\NeedsTeXFormat{LaTeX2e}
+%
+%\ProvidesPackage{ivanfm-prova}[2016-03-01 v0.16 IvanFM Provas]
+%
+\ProcessOptions*
+%
+\usepackage{ifthen}
+\usepackage[utf8]{inputenc}
+%
+%
+\@ifclassloaded{exam}{%
+}{%
+    \errmessage{Provas devem ser feitas utilizando a classe exam}
+}
+
+% traduções ----------------------------------------
+\pointpoints{ponto}{pontos}
+\renewcommand{\solutiontitle}{\noindent\textbf{Solução:}\enspace}
+\qformat{\textbf{Questão \thequestion:}\hfill[\pointsofquestion{\arabic{question}} \points]}
+%\totalformat{Total da questão \thequestion: \totalpoints\ \points} %ou use como na próx. linha
+\totalformat{Total: \totalpoints\ \points}
+\marginpointname{ \points}
+\hqword{Questões} %substitutes text for “Question:”
+\hpgword{Páginas} %substitutes text for “Page:”
+\hpword{Pontos} %substitutes text for “Points:”
+\hsword{Pontos obtidos} %substitutes text for “Score:”
+\htword{Total} %substitutes text for “Total”
+\vqword{Questões} %substitutes text for “Question:”
+\vpgword{Páginas} %substitutes text for “Page:”
+\vpword{Pontos} %substitutes text for “Points:”
+\vsword{Pontos obtidos} %substitutes text for “Score:”
+\vtword{Total} %substitutes text for “Total”
+% ajustes ----------------------------------------
+%\pointsinrightmargin
+%\pointsinmargin
+
+\addpoints
+\bracketedpoints
+
+%\pointsdroppedatright
+\setlength\linefillheight{.6cm} %distância entre linhas
+
+
+% Cabeçalho e Roda-pé ----------------------------------------
+\pagestyle{headandfoot}
+\headrule
+\footrule
+
+\lhead[\bf\large \Disciplina\\ \normalsize Prof. \Professor\\ Nome:\rule{7cm}{0.2mm} Prontuário:\rule{3cm}{0.2mm}]{\Disciplina\\ Nome:\rule{7cm}{0.2mm} Prontuário: \rule{3cm}{0.2mm}}
+\chead[]{}
+\rhead[\bf\large \Curso\space\space \Tipo\\ \Data]{\Tipo \emph{(Continuação)}\\ \Data}
+\lfoot{\iflastpage{Fim}{}}
+\cfoot{Pág. \thepage\ de \numpages}
+\rfoot{\iflastpage{Boa Prova!}{}}
+\newcommand\folhainicial{%
+\paragraph{}\underline{\textbf{Leia TODAS instruções antes de iniciar a prova}}.
+\paragraph{}\textbf{Utilize SOMENTE caneta azul ou preta} para resolução da prova.
+\paragraph{}\textbf{NÃO utilize caneta vermelha} para resolução da prova.
+\paragraph{}\textbf{Escreva} seu nome e prontuário e número em \textbf{TODAS} as folhas.
+\paragraph{}\textbf{Verifique} se seu caderno contém todas as folhas (verifique no rodapé a numeração).
+\paragraph{}\textbf{Desligue} o telefone celular, pager, PSP, MP[0-9]+, iPod, etc...
+\paragraph{}Utilize o verso das folhas \textbf{caso} seja necessário. Identifique as respostas de forma CLARA.
+\paragraph{}Não entendo Hieróglifos, garanta que suas respostas estejam legíveis.
+\paragraph{}\textbf{Não escreva} no quadro abaixo.
+\\
+\begin{center}
+\gradetable[v] 
+\end{center}
+
+}
+
+\endinput
